@@ -3,6 +3,8 @@ const ADD_NOTE = "ADD_NOTE"
 const DELETE_NOTE = "DELETE_NOTE"
 const UPDATE_NOTE = "UPDATE_NOTE"
 const TOGGLE_FAVORITE = "TOGGLE_FAVORITE"
+const TOGGLE_COMPLETED = "TOGGLE_COMPLETED"
+const DELETE_COMPLETED = "DELETE_COMPLETED"
 
 // Una recomendación adicional
 // Tu implementación ya tiene la idea central de useReducer:
@@ -58,6 +60,16 @@ export function useNoteAct() {
             : dato,
         )
 
+      case TOGGLE_COMPLETED:
+        return datos.map((dato) =>
+          dato.id === action.payload
+            ? { ...dato, completed: !dato.completed }
+            : dato,
+        )
+
+      case DELETE_COMPLETED:
+        return datos.filter((nota) => !nota.completed)
+
       default:
         return datos
     }
@@ -74,18 +86,21 @@ export function useNoteAct() {
             title: "Desayuno",
             description: "Huevo hervido",
             favorite: false,
+            completed: false,
           },
           {
             id: 2,
             title: "Comida para la semana",
             description: "Pollo en morita",
             favorite: false,
+            completed: false,
           },
           {
             id: 3,
             title: "Cena",
             description: "Quesadillas con queso",
             favorite: false,
+            completed: false,
           },
         ]
   }
@@ -102,6 +117,7 @@ export function useNoteAct() {
         title,
         description,
         favorite: false,
+        completed: false,
       },
     })
 
@@ -115,6 +131,11 @@ export function useNoteAct() {
       type: DELETE_NOTE,
       payload: id,
     })
+  }
+
+  //Eliminar notas completadas
+  const deleteCompleted = () => {
+    dispatch({ type: DELETE_COMPLETED })
   }
 
   //Editar nota
@@ -138,6 +159,14 @@ export function useNoteAct() {
   const favoriteNote = (id) => {
     dispatch({
       type: TOGGLE_FAVORITE,
+      payload: id,
+    })
+  }
+
+  //Marcar como completada
+  const toggleCompleted = (id) => {
+    dispatch({
+      type: TOGGLE_COMPLETED,
       payload: id,
     })
   }
@@ -171,7 +200,7 @@ export function useNoteAct() {
   }
 
   const handleDescription = (e) => {
-    if (e.target.value.length <= 2 || e.target.value.length > 30) {
+    if (e.target.value.length <= 2 || e.target.value.length > 60) {
       setValidateDescription(
         "Error: debe tener más de 2 caracteres y menos de 30",
       )
@@ -193,7 +222,7 @@ export function useNoteAct() {
   }
 
   const onChangeDescriptionAct = (e) => {
-    if (e.target.value.length <= 2 || e.target.value.length > 30) {
+    if (e.target.value.length <= 2 || e.target.value.length > 60) {
       setValidateDescriptionAct(
         "Error: debe tener más de 2 caracteres y menos de 30",
       )
@@ -216,6 +245,7 @@ export function useNoteAct() {
     deleteNote,
     select,
     favoriteNote,
+    toggleCompleted,
     titleAct,
     validateTitleAct,
     descriptionAct,
@@ -229,5 +259,6 @@ export function useNoteAct() {
     setOpenDetails,
     selectDetails,
     dispatch,
+    deleteCompleted,
   }
 }

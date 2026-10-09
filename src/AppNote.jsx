@@ -7,6 +7,7 @@ import NoteListFavorite from "./NoteListFavorite/NoteListFavorite"
 import NotesProvider from "./contexts/NotesContext"
 import { useNoteAct } from "./hooks/useNoteAct"
 import ShowNote from "./ShowNote/ShowNote"
+import Complete from "./Complete/Complete"
 
 export default function AppNote() {
   const {
@@ -21,6 +22,7 @@ export default function AppNote() {
     deleteNote,
     select,
     favoriteNote,
+    toggleCompleted,
     titleAct,
     validateTitleAct,
     descriptionAct,
@@ -34,6 +36,7 @@ export default function AppNote() {
     setOpenDetails,
     selectDetails,
     dispatch,
+    deleteCompleted,
   } = useNoteAct()
 
   const [section, setSection] = useState("inicio")
@@ -62,6 +65,7 @@ export default function AppNote() {
             deleteNote,
             select,
             favoriteNote,
+            toggleCompleted,
             titleAct,
             validateTitleAct,
             descriptionAct,
@@ -76,9 +80,10 @@ export default function AppNote() {
             selectDetails,
             dispatch,
             section,
+            deleteCompleted,
           }}
         >
-          <Nav setSection={setSection} />
+          <Nav setSection={setSection} section={section} />
 
           {section === "inicio" && (
             <>
@@ -94,6 +99,8 @@ export default function AppNote() {
           )}
 
           {section === "favoritos" && <NoteListFavorite />}
+
+          {section === "completos" && <Complete />}
         </NotesProvider.Provider>
       </div>
     </div>

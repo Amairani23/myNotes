@@ -12,18 +12,20 @@ Aplicación web desarrollada con React que permite crear y administrar notas de 
 - Validaciones: verificar la longitud del título y la descripción.
 - Persistencia de datos: guardar las notas en localStorage para conservarlas al recargar la página.
 - Filtrar las notas favoritas.
+- Filtrar con las notas completas
 
 ## 🛠️ Tecnologías utilizadas
 
-React — biblioteca para construir interfaces de usuario.
-JavaScript (ES6+).
-Tailwind CSS — estilos y diseño de la interfaz.
-React Hooks:
-useState para manejar formularios, validaciones y modales.
-useReducer para centralizar las acciones de las notas.
-useEffect para sincronizar las notas con localStorage.
-Lucide React — iconos de la interfaz.
-Vite — herramienta de desarrollo y compilación.
+- React — biblioteca para construir interfaces de usuario.
+- JavaScript (ES6+).
+- Tailwind CSS — estilos y diseño de la interfaz.
+- React Hooks:
+  -useState para manejar formularios, validaciones y modales.
+  -useReducer para centralizar las acciones de las notas.
+  -useEffect para sincronizar las notas con localStorage.
+  -custom hooks para agregar hooks personalizados
+- Lucide React — iconos de la interfaz.
+- Vite — herramienta de desarrollo y compilación.
 
 ## 📦 Instalación
 
@@ -60,7 +62,6 @@ Con este proyecto practiqué:
 
 ## 🚀 Próximas mejoras
 
-Mejorar el diseño adaptable a dispositivos móviles.
 Agregar categorías para organizar las notas.
 
 Desarrollado como proyecto de práctica para fortalecer mis conocimientos de React y JavaScript.
