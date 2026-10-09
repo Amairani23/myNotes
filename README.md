@@ -2,6 +2,8 @@
 
 Aplicación web desarrollada con React que permite crear y administrar notas de manera sencilla. Este proyecto tiene como objetivo practicar el manejo del estado con los hooks de React y la persistencia de datos en el navegador.
 
+[Demo - Mis Notas](http://mynotesarra.netlify.app "Demo - Mis Notas")
+
 ## ✨ Funcionalidades
 
 - Crear notas: agregar notas con título y descripción.
