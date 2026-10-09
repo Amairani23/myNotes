@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+.menu {
+  background-color: rgb(100, 166, 233);
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
